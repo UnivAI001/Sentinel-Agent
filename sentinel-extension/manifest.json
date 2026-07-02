@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Sentinel Agent",
+  "version": "1.0",
+  "description": "On-demand email security analysis using Sentinel AI.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://mail.google.com/*",
+    "http://localhost:3000/*",
+    "http://localhost:4000/*",
+    "http://47.251.250.224:4000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["auto-popup.js"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

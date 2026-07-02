@@ -1,0 +1,27 @@
+{
+  "name": "sentinel-agent",
+  "version": "1.0.0",
+  "description": "Sentinel Agent for email security threats",
+  "main": "agent/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node agent/index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.108.2",
+    "cors": "^2.8.6",
+    "dotenv": "^16.6.1",
+    "express": "^5.2.1",
+    "googleapis": "^140.0.0",
+    "open": "^11.0.0",
+    "openai": "^6.45.0",
+    "playwright": "^1.44.0",
+    "resend": "^3.2.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sentinel Agent</title>
+  <link rel="stylesheet" href="popup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+        </svg>
+        <span>Sentinel Agent</span>
+      </div>
+    </div>
+
+    <!-- Auth State -->
+    <div id="auth-state" class="state-container active">
+      <p class="description">Sign in to sync your scans with Sentinel.</p>
+      <input type="email" id="email-input" placeholder="Email Address" style="width:100%; padding: 10px; border-radius: 8px; border: 1px solid #1e293b; background: rgba(15,23,42,0.6); color: #fff;" />
+      <input type="password" id="password-input" placeholder="Password" style="width:100%; padding: 10px; border-radius: 8px; border: 1px solid #1e293b; background: rgba(15,23,42,0.6); color: #fff;" />
+      <button id="login-btn" class="primary-btn">Sign In</button>
+      <p id="auth-error" style="color: #f87171; font-size: 11px; margin-top: 4px; display: none;"></p>
+    </div>
+
+    <!-- Initial State -->
+    <div id="initial-state" class="state-container hidden">
+      <p class="description">Scan this email to detect phishing, spoofing, and malicious intent using Qwen AI.</p>
+      <button id="scan-btn" class="primary-btn">
+        <span>Analyze Email</span>
+      </button>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loading-state" class="state-container hidden">
+      <div class="spinner"></div>
+      <p id="loading-text">Extracting email content...</p>
+      
+      <div class="progress-bar">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+      
+      <div class="sse-logs" id="sse-logs">
+        <!-- Live status updates will appear here -->
+      </div>
+    </div>
+
+    <!-- Result State -->
+    <div id="result-state" class="state-container hidden">
+      <div id="verdict-badge" class="badge">--</div>
+      <h3 id="verdict-title">Analysis Complete</h3>
+      <p id="short-reason" class="reasoning">Gathering reasoning...</p>
+      
+      <div id="extended-reason-container" class="hidden">
+        <hr class="divider">
+        <p class="section-title">Detailed Assessment</p>
+        <div id="extended-reason" class="extended-reasoning"></div>
+      </div>
+      
+      <div class="actions">
+        <button id="see-more-btn" class="secondary-btn">See More</button>
+        <button id="copy-btn" class="secondary-btn">Copy</button>
+        <button id="close-btn" class="primary-btn">Acknowledge</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
